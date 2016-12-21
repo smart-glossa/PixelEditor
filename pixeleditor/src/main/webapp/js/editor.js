@@ -31,7 +31,7 @@ $(document).on(
 
 
         var url = "/pixeleditor/pe?operation=addfile&fname=" +
-            fname + " &messages=" + messages ;
+            fname + " &messages=" + encodeURI(messages) ;
 
 
         $.ajax({
@@ -84,7 +84,7 @@ $(document).on(
 	            }).done(function(result) {
 	                var res = JSON.parse(result);
 
-	                $('#messages').val(res.Mess);
+	                $('#messages').val(decodeURI(res.Mess));
 	                $("#messages")[0].innerHTML = res;
 
 	            }).fail(function(result) {
