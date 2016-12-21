@@ -92,5 +92,9 @@ $(document).on(
 	            })
 	        } 
 	    })
-	    
+	    $(document).keyup(function(e) {
+  if (e.keyCode === 83) $('#save').click();     // s
+  if (e.keyCode === 79) $('#open').click();   // o
+  
+});
 
