@@ -64,6 +64,7 @@ $(document).on(
 	    "#openfile",
 	    function() {
         var strVar="";
+        
 strVar += "<div id=\"update\">";
 strVar += "<table>";
 
@@ -76,6 +77,8 @@ function newwindow(){
 var strVar="";
 strVar += "<textarea id=\"messages\"><\/textarea>";
 $("#editor")[0].innerHTML = strVar;
+strVar += "<div id=\"insert\" readonly=\"true\"><\/div>";
+$("#insert")[0].innerHTML = strVar;
 
 }
 $(document).on(
@@ -138,8 +141,8 @@ $(document).on(
         });
     });
 	    $(document).keyup(function(e) {
-  if (e.keyCode === 83) $('#save').click();     // s
-  if (e.keyCode === 79) $('#open').click();   // o
+  if (e.keyCode === 49) $('#save').click();     // 1
+  if (e.keyCode === 50) $('#open').click();   // 2
   
 });
 
