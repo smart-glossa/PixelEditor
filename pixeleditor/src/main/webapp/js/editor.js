@@ -30,12 +30,12 @@ $(document).on(
         }
 
 
-        var url = "/pixeleditor/pe?operation=addfile&fname=" +
+        var url = "/pixeleditor/editor?operation=addfile&fname=" +
             fname + " &messages=" + encodeURI(messages) ;
 
 
         $.ajax({
-            url: url,
+            url: url, 
             type: 'POST'
 
         }).done(function(result) {
@@ -59,6 +59,19 @@ strVar += "<\/table>";
 strVar += "<\/div>";
 $("#insert")[0].innerHTML = strVar;
 })
+$(document).on(
+	    "click",
+	    "#openfile",
+	    function() {
+        var strVar="";
+strVar += "<div id=\"update\">";
+strVar += "<table>";
+
+strVar += "<tr><td><button id=\"updatefile\">Save<\/button><td><\/tr>";
+strVar += "<\/table>";
+strVar += "<\/div>";
+$("#update")[0].innerHTML = strVar;
+})
 function newwindow(){
 var strVar="";
 strVar += "<textarea id=\"messages\"><\/textarea>";
@@ -76,7 +89,7 @@ $(document).on(
 	        }
 	        if (fname !== "") {
 
-	            var url = "/pixeleditor/pe?operation=getmessages&fname=" +
+	            var url = "/pixeleditor/editor?operation=getmessages&fname=" +
 	                fname;
 	            $.ajax({
 	                url: url,
@@ -92,6 +105,38 @@ $(document).on(
 	            })
 	        } 
 	    })
+	    $(document).on(
+    "click",
+    "#update",
+    function() {
+       
+        var fname = $("#fname").val();
+        var messages=$("#messages").val();
+        
+
+        if (fname == "") {
+            $("#fname").focus().css("outline-color", "red");
+            return;
+        }
+        if (messages == "") {
+            $("#messages").focus().css("outline-color", "red");
+            return;
+        }
+        
+        var url = "/pixeleditor/editor?operation=updatemessages&fname=" +
+            fname + "&messages=" + messages;
+
+        $.ajax({
+            url: url,
+            type: 'POST'
+
+        }).done(function(result) {
+            alert(result);
+
+        }).fail(function(result) {
+            alert(result);
+        });
+    });
 	    $(document).keyup(function(e) {
   if (e.keyCode === 83) $('#save').click();     // s
   if (e.keyCode === 79) $('#open').click();   // o

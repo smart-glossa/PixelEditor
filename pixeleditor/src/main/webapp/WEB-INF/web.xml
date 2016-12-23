@@ -10,7 +10,7 @@
     </servlet>
     <servlet-mapping>
     	<servlet-name>editor</servlet-name>
-    	<url-pattern>/pe</url-pattern>
+    	<url-pattern>/editor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

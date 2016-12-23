@@ -83,7 +83,28 @@ public class editor extends HttpServlet {
 	                e.printStackTrace();
 	            }
 	            response.getWriter().println(result);
-	        }
+	            }
+	            else if (operation.equals("updatemessages")) {
+	    			JSONObject result = new JSONObject();
+	    			String fname = request.getParameter("fname");
+					String messages = request.getParameter("messages");
+
+	    			try {
+	    				Class.forName("com.mysql.jdbc.Driver");
+	    				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/editor", "root", "root");
+	    				Statement statement = connection.createStatement();
+	    				String query = "update edit set messages='" + messages  + "' where fname='" + fname+"'";
+	    				statement.execute(query);
+	    				result.put("status", "success");
+
+	    			} catch (Exception e) {
+	    				result.put("message", "error");
+
+	    				// TODO Auto-generated catch block
+	    				e.printStackTrace();
+	    			}
+	    			response.getWriter().print(result);
+	    		}        }
 	}
 
-}
+
