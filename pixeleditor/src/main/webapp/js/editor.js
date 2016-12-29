@@ -127,7 +127,7 @@ $(document).on(
         }
         
         var url = "/pixeleditor/editor?operation=updatemessages&fname=" +
-            fname + "&messages=" + messages;
+            fname + "&messages=" + encodeURI(messages);
 
         $.ajax({
             url: url,
