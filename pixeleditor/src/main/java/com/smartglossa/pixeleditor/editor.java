@@ -35,7 +35,7 @@ public class editor extends HttpServlet {
 			JSONObject result = new JSONObject();
 			try {
 				Class.forName(DataBaseConstant.MYSQL_DRIVER);
-				Connection connection = DriverManager.getConnection(
+				Connection connection = DriverManager.getConnection("jdbc:mysql://" +
 						DataBaseConstant.MYSQL_SERVER + "/" + DataBaseConstant.DATABASE_NAME, DataBaseConstant.USERNAME,
 						DataBaseConstant.PASSWORD);
 				Statement statement = connection.createStatement();
@@ -55,7 +55,7 @@ public class editor extends HttpServlet {
 			String fname = request.getParameter("fname");
 			try {
 				Class.forName(DataBaseConstant.MYSQL_DRIVER);
-				Connection connection = DriverManager.getConnection(
+				Connection connection = DriverManager.getConnection("jdbc:mysql://"+
 						DataBaseConstant.MYSQL_SERVER + "/" + DataBaseConstant.DATABASE_NAME, DataBaseConstant.USERNAME,
 						DataBaseConstant.PASSWORD);
 				Statement statement = connection.createStatement();
@@ -74,7 +74,7 @@ public class editor extends HttpServlet {
 			String messages = request.getParameter("messages");
 
 			try {
-				Connection connection = DriverManager.getConnection(
+				Connection connection = DriverManager.getConnection("jdbc:mysql://" + 
 						DataBaseConstant.MYSQL_SERVER + "/" + DataBaseConstant.DATABASE_NAME, DataBaseConstant.USERNAME,
 						DataBaseConstant.PASSWORD);
 				Statement statement = connection.createStatement();
