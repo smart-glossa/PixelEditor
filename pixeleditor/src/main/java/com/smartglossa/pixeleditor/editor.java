@@ -104,7 +104,54 @@ public class editor extends HttpServlet {
 	    				e.printStackTrace();
 	    			}
 	    			response.getWriter().print(result);
-	    		}        }
+	    		} 
+	            else if (operation.equals("adduser")) {
+			String name = request.getParameter("name");
+			String uname = request.getParameter("uname");
+			String pass = request.getParameter("pass");
+			  
+
+			JSONObject result = new JSONObject();
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/editor", "root", "root");
+				Statement statement = connection.createStatement();
+				String query = "insert into user (name,uname,pass) values('" + name + "','" + uname + "','" + pass
+						+ "')";
+				statement.execute(query);
+				result.put("status", "success");
+
+			} catch (Exception e) {
+				result.put("message", "error");
+
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			response.getWriter().print(result);
+		} 	
+	            else if (operation.equals("getuser")) {
+		            JSONObject result = new JSONObject();
+		            String uname=request.getParameter("uname");
+		            String pass=request.getParameter("pass");
+		            try {
+		                Class.forName("com.mysql.jdbc.Driver");
+		                Connection connection =
+		                        DriverManager.getConnection("jdbc:mysql://localhost:3306/editor", "root", "root");
+		                Statement statement = connection.createStatement();
+		                String query = "select name,uname from user where uname='"+uname+"' and pass='"+pass+"'";
+		                ResultSet rs = statement.executeQuery(query);
+		                if (rs.next()) {
+		                    result.put("name", rs.getString("name"));
+		                    result.put("uname", rs.getString("uname"));
+		                }
+		            } catch (Exception e) {
+		                e.printStackTrace();
+		            }
+		            response.getWriter().println(result);
+		            }
+	}
+	
+	
 	}
 
 
