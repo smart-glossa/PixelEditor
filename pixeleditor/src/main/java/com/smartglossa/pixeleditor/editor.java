@@ -14,16 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 public class editor extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		doPost(request, response);
+        doPost(request, response);
 
-	}
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String operation = request.getParameter("operation");
 
@@ -85,7 +85,6 @@ public class editor extends HttpServlet {
 			} catch (Exception e) {
 				result.put("message", "error");
 
-<<<<<<< HEAD
 	    				// TODO Auto-generated catch block
 	    				e.printStackTrace();
 	    			}
@@ -136,14 +135,5 @@ public class editor extends HttpServlet {
 		            response.getWriter().println(result);
 		            }
 	}
-	
-	
-=======
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			response.getWriter().print(result);
-		}
->>>>>>> branch 'master' of https://github.com/smart-glossa/PixelEditor.git
-	}
+
 }
