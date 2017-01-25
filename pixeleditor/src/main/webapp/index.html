@@ -6,6 +6,11 @@
      <script type="text/javascript" src=js/jquery.js></script>
     <script type="text/javascript" src=js/editor.js></script>
     <style>
+    
+  .speech {border: 1px solid #DDD; width: 300px; padding: 0; margin: 0}
+  .speech input {border: 0; width: 240px; display: inline-block; height: 30px;}
+  .speech img {float: right; width: 40px }
+
 .dropdown {
    border: 1px solid black;
     position: relative;
@@ -55,9 +60,9 @@ cursor: pointer;
   float: left;
 }
 
-#messages{
-  width: 100%;
-  height: 630px;;
+#transcript{
+  width: 430%;
+  height: 570px;
 }
 #sav{
   width:100px;
@@ -73,6 +78,9 @@ width:200px;
 height: 70px;
 margin-left:200px;
 float:left;
+}
+#img{
+padding-left:30%;
 }
 </style>
   </head>
@@ -90,12 +98,45 @@ float:left;
   <div id="head">
   <h1 id="h">Pixel Editor</h1>
 </div>
+ <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" id="img"/>
 <div id="editor">
-<textarea id="messages"></textarea>
+  <div class="speech">
+  <textarea name="q" id="transcript" ></textarea>
+  </div>
 </div>
 <div id="insert">
 </div>
 <div id="update"></div>
 
+ 
+<script>
+  function startDictation() {
+
+    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+      var recognition = new webkitSpeechRecognition();
+
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      recognition.lang = "tamil(india)";
+      recognition.start();
+
+      recognition.onresult = function(e) {
+        document.getElementById('transcript').value
+                                 = e.results[0][0].transcript;
+        recognition.stop();
+       
+      };
+
+      recognition.onerror = function(e) {
+        recognition.stop();
+        
+        
+      }
+
+    }
+  }
+</script>
   </body>  
 </html>

@@ -74,11 +74,16 @@ strVar += "<\/div>";
 $("#update")[0].innerHTML = strVar;
 })
 function newwindow(){
-var strVar="";
-strVar += "<textarea id=\"messages\"><\/textarea>";
+	var strVar="";
+	strVar += "<div id=\"editor\">";
+	strVar += "  <div class=\"speech\">";
+	strVar += "  <textarea name=\"q\" id=\"transcript\" ><\/textarea>";
+	strVar += "  <\/div>";
+	strVar += "<\/div>";
+	strVar += "";
+
 $("#editor")[0].innerHTML = strVar;
-strVar += "<div id=\"insert\" readonly=\"true\"><\/div>";
-$("#insert")[0].innerHTML = strVar;
+
 
 }
 $(document).on(
