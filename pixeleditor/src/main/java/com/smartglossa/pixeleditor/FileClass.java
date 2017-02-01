@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class FileClass {
 	Connection conn = null;
 	Statement stat = null;
@@ -18,6 +21,32 @@ public class FileClass {
 		try {
 			String qry = "insert into file(fname,messages) values('" + fName + "','"+messages+"')";
 			stat.execute(qry);
+		} finally {
+			closeConnection();
+		}
+	}
+	public JSONArray getall() throws SQLException, ClassNotFoundException {
+		JSONArray result = new JSONArray();
+		try {
+			String query = "select * from file";
+			res = stat.executeQuery(query);
+			while (res.next()) {
+				JSONObject get = new JSONObject();
+				get.put("fName", res.getString("fName"));
+				
+
+				result.put(get);
+			}
+			return result;
+		} finally {
+			closeConnection();
+		}
+	}
+	public void update(String messages,String fName) throws SQLException {
+		try {
+			String query = "update set file messages='" + messages + "' where fname='" + fName+ "'";
+			stat.execute(query);
+
 		} finally {
 			closeConnection();
 		}

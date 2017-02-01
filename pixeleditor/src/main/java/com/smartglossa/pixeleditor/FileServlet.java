@@ -6,7 +6,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import com.smartglossa.product.ProductClass;
+
+
 
 
 public class FileServlet extends HttpServlet {
@@ -34,7 +39,35 @@ public class FileServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			response.getWriter().print(obj);
+	}else if (operation.equals("getall")) {
+        JSONArray result = new JSONArray();
+        try {
+            FileClass get = new FileClass();
+            result = get.getall();
+        } catch (Exception e) {
+            JSONObject get = new JSONObject();
+            get.put("status", 0);
+            result.put(get);
+            e.printStackTrace();
+        }
+        response.getWriter().println(result);
+
+}else if (operation.equals("updateprod")) {
+	JSONObject obj = new JSONObject();
+	String messages = request.getParameter("messages");
+	String fName= request.getParameter("fName");
+	
+	try {
+		FileClass update = new FileClass();
+		update.update(messages,fName);
+		obj.put("status", 1);
+	} catch (Exception e) {
+		obj.put("status", 0);
+		e.printStackTrace();
+		obj.put("message", e.getMessage());
 	}
+	response.getWriter().print(obj);
+}
 
 }	
 		
