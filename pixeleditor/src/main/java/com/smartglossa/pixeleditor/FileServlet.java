@@ -27,7 +27,7 @@ public class FileServlet extends HttpServlet {
 			
 			try {
 				FileClass file =new FileClass();
-				file.fileAdd(fName, messages);
+				file.file(fName,messages);
 				obj.put("status", 1);
 			} catch (Exception e) {
 				obj.put("status",0);
@@ -36,9 +36,7 @@ public class FileServlet extends HttpServlet {
 			response.getWriter().print(obj);
 	}
 
-}
-	
+}	
 		
 	}
-
 

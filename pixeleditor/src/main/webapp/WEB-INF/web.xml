@@ -21,7 +21,7 @@
     </servlet-mapping>
     <servlet-mapping>
     	<servlet-name>FileServlet</servlet-name>
-    	<url-pattern>/FileServlet</url-pattern>
+    	<url-pattern>/File</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
