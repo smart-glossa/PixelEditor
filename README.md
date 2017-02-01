@@ -3,7 +3,11 @@
 
 <h3> Model </h3>
 <br>
- 1. create table file(fname varchar(100) not null primary key, messages mediumtext not null);
+CREATE TABLE `file` (
+  `fname` varchar(100) NOT NULL,
+  `messages` mediumtext NOT NULL,
+  PRIMARY KEY  (`fname`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
 <br>
  <h3> View </h3>
  <br>
