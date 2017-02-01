@@ -1,6 +1,6 @@
 # PixelEditor
 
-
+DATABASE NAME:editor;
 <h3> Model </h3>
 <br>
 CREATE TABLE `file` (
