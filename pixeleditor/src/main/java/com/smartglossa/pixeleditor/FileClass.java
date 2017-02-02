@@ -52,6 +52,22 @@ public class FileClass {
 			closeConnection();
 		}
 	}
+	
+	public JSONObject getmsg(String fName) throws SQLException {
+		JSONObject obj=new JSONObject();
+		try { //select messages from file where fname='selvi';
+			String quer = "select messages from file where fname='"+ fName+"'";
+			ResultSet res = stat.executeQuery(quer);
+			while(res.next()){
+				//JSONObject obj1=new JSONObject();
+				obj.put("message",res.getString(1));	
+			}
+
+		} finally {
+			closeConnection();
+		}
+		return obj;
+	}
 
 
 	private void openConnection() throws Exception{

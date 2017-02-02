@@ -11,7 +11,7 @@ $(document).ready(function(){
 				div += "<div class='fulldetail'>"
 			    div += "<p><img src='images/1.png'" + result[i].img + "</p>";	
 	    		div += "<p id='na'>" + result[i].fName + "</p>";
-	    		//div += "<input>" + result[i].messages + "</input>";
+	    		
 				div += "</div>";
 			}
 			div += "</div>";
@@ -37,9 +37,7 @@ $(document).ready(function(){
 		            return;
 		        }
 
-
-		        var url = "/pixeleditor/File?operation=addFile&fName="+fname+"&messages="+messages;
-
+		        var url = "http://localhost:8080/pixeleditor/File?operation=addFile&fName="+fname+"&messages="+messages;
 
 		        $.ajax({
 		            url: url, 
@@ -55,7 +53,32 @@ $(document).ready(function(){
 		    });
 	
 });
-$(document).on("click",".na",function(){
-	var fName = $(this).val();
-	var url = 
-})
+$(document).on("click",".fulldetail",function(){
+	var fName = $(this).children().text();
+	var url ="http://localhost:8080/pixeleditor/File?operation=getMsg&fName="+fName;
+	$.ajax({
+        url: url,
+        type: 'POST'
+    })
+    .done(function(result) {
+        result = JSON.parse(result);
+        $("#messages").val(result.message);
+       
+    })
+    .fail(function(result) {
+        console.log(result);
+    });
+	
+	
+	
+	
+	
+	 $(document).on('click','#project',function(){
+	       $('.details').show();
+	    });
+	    $(document).on('click','#save',function(){
+	    	$('.details').hide();
+	    	$('.div1').show();
+	    });
+
+});
