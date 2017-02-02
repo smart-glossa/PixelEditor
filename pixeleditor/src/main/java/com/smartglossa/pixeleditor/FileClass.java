@@ -33,6 +33,7 @@ public class FileClass {
 			while (res.next()) {
 				JSONObject get = new JSONObject();
 				get.put("fName", res.getString("fName"));
+				get.put("messages", res.getString("messages"));
 				
 
 				result.put(get);
