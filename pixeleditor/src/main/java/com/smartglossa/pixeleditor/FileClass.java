@@ -60,7 +60,7 @@ public class FileClass {
 			ResultSet res = stat.executeQuery(quer);
 			while(res.next()){
 				//JSONObject obj1=new JSONObject();
-				obj.put("message",res.getString(1));	
+				obj.put("message",res.getString("messages"));	
 			}
 
 		} finally {

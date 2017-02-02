@@ -11,10 +11,12 @@ $(document).ready(function(){
 				div += "<div class='fulldetail'>"
 			    div += "<p><img src='images/1.png'" + result[i].img + "</p>";	
 	    		div += "<p id='na'>" + result[i].fName + "</p>";
-	    		
 				div += "</div>";
+				
 			}
 			div += "</div>";
+
+
 			$(".details")[0].innerHTML = div;
 		});
 	
