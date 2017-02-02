@@ -18,17 +18,13 @@ li {
 li a {
     display: block;
     color: white;
-    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
-li a:hover {
-    background-color: red;
-}
 textarea{
-	width:560px;
-	height:220px;
+	width:95%;
+	height:570px;
 	margin-left:40px;
 	resize:none;
 }
@@ -39,4 +35,16 @@ input{
 }
 button{
 	margin-left:30px;
+}
+img{
+	width:32px;
+}
+.fulldetail {
+   
+    width:120px;
+    height:90px; 
+    padding: 25px;
+    border: 3px solid #9c27b0;
+    margin: 2px;
+      float:left;
 }

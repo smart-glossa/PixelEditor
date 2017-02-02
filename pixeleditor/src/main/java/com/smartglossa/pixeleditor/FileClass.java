@@ -52,6 +52,8 @@ public class FileClass {
 			closeConnection();
 		}
 	}
+
+
 	private void openConnection() throws Exception{
 		 Class.forName(DataBaseConstant.MYSQL_DRIVER);
 		 String URL="jdbc:mysql://localhost:3306/editor";

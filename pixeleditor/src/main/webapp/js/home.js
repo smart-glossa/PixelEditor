@@ -9,8 +9,9 @@ $(document).ready(function(){
 			var div = "<div >"
 			for (var i = 0; i < result.length; i++) {
 				div += "<div class='fulldetail'>"
-	    		div += "<p id='na'>" + result[i].fName + "</p>"
-	    		//div += "<p>" + result[i].messages + "</p>"
+			    div += "<p><img src='images/1.png'" + result[i].img + "</p>";	
+	    		div += "<p id='na'>" + result[i].fName + "</p>";
+	    		//div += "<input>" + result[i].messages + "</input>";
 				div += "</div>";
 			}
 			div += "</div>";
@@ -18,4 +19,43 @@ $(document).ready(function(){
 		});
 	
 });
+	$(document).on(
+		    "click",
+		    "#save",
+		    function() {
+
+		        var fname = $("#fname").val();
+		        var messages = $("#messages").val();
+
+
+		        if (fname == "") {
+		            $("#fname").focus().css("outline-color", "red");
+		            return;
+		        }
+		        if (messages == "") {
+		            $("#messages").focus().css("outline-color", "red");
+		            return;
+		        }
+
+
+		        var url = "/pixeleditor/File?operation=addFile&fName="+fname+"&messages="+messages;
+
+
+		        $.ajax({
+		            url: url, 
+		            type: 'POST'
+
+		        }).done(function(result) {
+		            alert(result);
+
+		        })
+		        .fail(function(result) {
+		            alert(result);
+		        });
+		    });
+	
 });
+$(document).on("click",".na",function(){
+	var fName = $(this).val();
+	var url = 
+})
