@@ -10,12 +10,12 @@ $(document).ready(function(){
 			for (var i = 0; i < result.length; i++) {
 				div += "<div class='fulldetail'>"
 	    		div += "<p id='na'>" + result[i].fName + "</p>"
-	    		div += "<p>" + result[i].messages + "</p>"
+	    		//div += "<p>" + result[i].messages + "</p>"
 				div += "</div>";
 			}
 			div += "</div>";
 			$(".details")[0].innerHTML = div;
 		});
 	
-})
+});
 });
