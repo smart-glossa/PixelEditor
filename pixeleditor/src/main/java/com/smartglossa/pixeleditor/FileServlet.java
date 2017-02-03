@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+
 public class FileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -48,7 +49,7 @@ public class FileServlet extends HttpServlet {
 			}
 			response.getWriter().println(result);
 
-		} else if (operation.equals("updateprod")) {
+		} else if (operation.equals("updateMsg")) {
 			JSONObject obj = new JSONObject();
 			String messages = request.getParameter("messages");
 			String fName = request.getParameter("fName");
@@ -74,6 +75,16 @@ public class FileServlet extends HttpServlet {
 			}
 			response.getWriter().println(one);
 
+		}else if (operation.equals("getOne")) {
+		    String fName =request.getParameter("fName");
+		    JSONObject reslt = new JSONObject();
+		    try {
+		        FileClass get = new FileClass();
+		        reslt = get.getone(fName);
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+		    response.getWriter().println(reslt);
 		}
 
 	}

@@ -45,8 +45,8 @@ public class FileClass {
 	}
 	public void update(String messages,String fName) throws SQLException {
 		try {
-			String query = "update set file messages='" + messages + "' where fname='" + fName+ "'";
-			stat.execute(query);
+			String que = "update file set messages='" + messages + "' where fname='" + fName+ "'";
+			stat.execute(que);
 
 		} finally {
 			closeConnection();
@@ -69,7 +69,22 @@ public class FileClass {
 		return obj;
 	}
 
+	public JSONObject getone(String fName) throws SQLException, ClassNotFoundException {
+		JSONObject reslt = new JSONObject();
+		try {
+			String quer = "select * from file where fname=" + fName;
+			res = stat.executeQuery(quer);
+			if (res.next()) {
+				reslt.put("messages", res.getString("messages"));
+				
+			}
 
+		} finally {
+			closeConnection();
+		}
+		return reslt;
+
+	}
 	private void openConnection() throws Exception{
 		 Class.forName(DataBaseConstant.MYSQL_DRIVER);
 		 String URL="jdbc:mysql://localhost:3306/editor";

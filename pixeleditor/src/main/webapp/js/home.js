@@ -68,8 +68,34 @@ $(document).on("click",".fulldetail",function(){
     });
 	
 	
-	
-	
+	$(document).on("click","#send",function() {
+
+        var Fname = $("#fName").val();
+        var Messages = $("#messages").val();
+
+
+        if (Fname == "") {
+            $("#fName").focus().css("outline-color", "red");
+            return;
+        }
+        if (Messages == "") {
+            $("#messages").focus().css("outline-color", "red");
+            return;
+        }
+
+ var url="/pixeleditor/File?operation=updateMsg&fName="+Fname+"&messages="+Messages;
+        $.ajax({
+            url: url, 
+            type: 'POST'
+
+        }).done(function(result) {
+            alert(result);
+
+        })
+        .fail(function(result) {
+            alert(result);
+        });
+    })
 	
 
     $(document).on('click','',function(){
@@ -80,3 +106,5 @@ $(document).on("click",".fulldetail",function(){
    });
 
 });
+
+
