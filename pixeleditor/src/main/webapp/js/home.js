@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$(document).on("click", "#sub", function(){	
-	var url = "http://localhost:8080/pixeleditor/File?operation=getall"
+	var url = "/pixeleditor/File?operation=getall"
 		$.ajax({
 			url : url,
 			type : 'POST'
@@ -15,23 +15,18 @@ $(document).ready(function(){
 				
 			}
 			div += "</div>";
-
-
 			$(".details")[0].innerHTML = div;
 		});
 	
 });
-	$(document).on(
-		    "click",
-		    "#save",
-		    function() {
+	$(document).on("click","#save",function() {
 
-		        var fname = $("#fname").val();
+		        var fname = $("#fName").val();
 		        var messages = $("#messages").val();
 
 
 		        if (fname == "") {
-		            $("#fname").focus().css("outline-color", "red");
+		            $("#fName").focus().css("outline-color", "red");
 		            return;
 		        }
 		        if (messages == "") {
@@ -39,7 +34,7 @@ $(document).ready(function(){
 		            return;
 		        }
 
-		        var url = "http://localhost:8080/pixeleditor/File?operation=addFile&fName="+fname+"&messages="+messages;
+		        var url ="/pixeleditor/File?operation=addFile&fName="+fname+"&messages="+messages;
 
 		        $.ajax({
 		            url: url, 
@@ -63,6 +58,7 @@ $(document).on("click",".fulldetail",function(){
         type: 'POST'
     })
     .done(function(result) {
+    	sent();
         result = JSON.parse(result);
         $("#messages").val(result.message);
        
@@ -75,12 +71,12 @@ $(document).on("click",".fulldetail",function(){
 	
 	
 	
-	 $(document).on('click','#project',function(){
-	       $('.details').show();
-	    });
-	    $(document).on('click','#save',function(){
-	    	$('.details').hide();
-	    	$('.div1').show();
-	    });
+
+    $(document).on('click','',function(){
+      $('.details').show();
+   });
+   $(document).on('click','#save',function(){
+   	$('.div1').hide();
+   });
 
 });

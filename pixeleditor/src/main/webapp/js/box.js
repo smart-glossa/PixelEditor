@@ -8,3 +8,13 @@ function my(){
 	
 	$(".div1")[0].innerHTML = file;
 }
+
+function sent(){
+	var good="";
+	good += "";
+	good += "<textarea type=\"text\" id=\"messages\"><\/textarea>";
+	good += "<button id=\"sent\">send<\/button>";
+	good += "";
+	
+	$(".details")[0].innerHTML = good;
+}
