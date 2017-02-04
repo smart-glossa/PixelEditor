@@ -55,8 +55,8 @@ public class FileClass {
 	
 	public JSONObject getmsg(String fName) throws SQLException {
 		JSONObject obj=new JSONObject();
-		try { //select messages from file where fname='selvi';
-			String quer = "select messages from file where fname='"+ fName+"'";
+		try { 
+			String quer = "select messages from file where fname='"+ fName +"'";
 			ResultSet res = stat.executeQuery(quer);
 			while(res.next()){
 				//JSONObject obj1=new JSONObject();
@@ -72,7 +72,7 @@ public class FileClass {
 	public JSONObject getone(String fName) throws SQLException, ClassNotFoundException {
 		JSONObject reslt = new JSONObject();
 		try {
-			String quer = "select * from file where fname=" + fName;
+			String quer = "select * from file where fname='" + fName +"'";
 			res = stat.executeQuery(quer);
 			if (res.next()) {
 				reslt.put("messages", res.getString("messages"));

@@ -97,7 +97,25 @@ $(document).on("click",".fulldetail",function(){
         });
     })
 	
+     $(document).on('click', '#fName', function() {
+            var fName = $("#fName").val();
+            if (fName != "") {
+                var url ="/pixeleditor/File?operation=getOne&fName="+fName;
+                $.ajax({
+                        url: url,
+                        type: 'POST'
+                    })
+                    .done(function(result) {
+                        result = JSON.parse(result);
+                        $("#messages").val(result.messages);
+                       
+                    });
+            }
+        });
 
+    
+
+    
     $(document).on('click','',function(){
       $('.details').show();
    });
