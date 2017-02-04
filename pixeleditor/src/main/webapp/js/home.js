@@ -61,6 +61,7 @@ $(document).on("click",".fulldetail",function(){
     	sent();
         result = JSON.parse(result);
         $("#messages").val(result.message);
+        $("#fName").val(result.fName);
        
     })
     .fail(function(result) {
@@ -68,7 +69,7 @@ $(document).on("click",".fulldetail",function(){
     });
 	
 	
-	$(document).on("click","#send",function() {
+	$(document).on("click","#update",function() {
 
         var Fname = $("#fName").val();
         var Messages = $("#messages").val();
@@ -97,7 +98,7 @@ $(document).on("click",".fulldetail",function(){
         });
     })
 	
-     $(document).on('click', '#fName', function() {
+     $(document).on('keypress', '#fName', function() {
             var fName = $("#fName").val();
             if (fName != "") {
                 var url ="/pixeleditor/File?operation=getOne&fName="+fName;
@@ -116,12 +117,12 @@ $(document).on("click",".fulldetail",function(){
     
 
     
-    $(document).on('click','',function(){
+   /* $(document).on('click','',function(){
       $('.details').show();
    });
    $(document).on('click','#save',function(){
    	$('.div1').hide();
-   });
+   });*/
 
 });
 

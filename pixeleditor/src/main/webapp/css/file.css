@@ -22,10 +22,10 @@ li a {
     text-decoration: none;
 }
 
-textarea
+.textarea
 {
-	width: 70%;
-	height: 550px;
+	width: 99%;
+	height: 500px;
 	border-radius: 3px;
 	border: 1px solid #CCC;
 	padding: 8px;
@@ -34,6 +34,21 @@ textarea
 	font-family: Verdana;
 	box-shadow: 1px 1px 5px #CCC;
 	resize:none;
+	
+}
+.textarea1
+{
+	width: 99%;
+	height: 500px;
+	border-radius: 3px;
+	border: 1px solid #CCC;
+	padding: 8px;
+	font-weight: 200;
+	font-size: 15px;
+	font-family: Verdana;
+	box-shadow: 1px 1px 5px #CCC;
+	resize:none;
+	position:static;
 }
 input{
 	width: 200px;
@@ -74,5 +89,11 @@ img{
 	box-shadow: 1px 1px 5px #CCC;
 	margin:3px;
     
+}
+.deed{
+	margin-left:170px;
+	margin-top:-1450px;
+	
+	
 }
 

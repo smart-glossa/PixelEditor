@@ -61,6 +61,7 @@ public class FileClass {
 			while(res.next()){
 				//JSONObject obj1=new JSONObject();
 				obj.put("message",res.getString("messages"));	
+				
 			}
 
 		} finally {
