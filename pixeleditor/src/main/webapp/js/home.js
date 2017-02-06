@@ -98,8 +98,8 @@ $(document).on("click",".fulldetail",function(){
         });
     })
 	
-     $(document).on('keypress', '#fName', function() {
-            var fName = $("#fName").val();
+      $(document).on('keyup', '#fName', function() {
+            var fName = $('#fName').val();
             if (fName != "") {
                 var url ="/pixeleditor/File?operation=getOne&fName="+fName;
                 $.ajax({
@@ -112,6 +112,11 @@ $(document).on("click",".fulldetail",function(){
                        
                     });
             }
+            
+            
+            
+            
+            
         });
 
     
