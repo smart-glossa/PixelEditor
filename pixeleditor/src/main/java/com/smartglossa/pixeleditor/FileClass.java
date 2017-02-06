@@ -56,11 +56,13 @@ public class FileClass {
 	public JSONObject getmsg(String fName) throws SQLException {
 		JSONObject obj=new JSONObject();
 		try { 
-			String quer = "select messages from file where fname='"+ fName +"'";
+			String quer = "select fname,messages from file where fname='"+ fName +"'";
 			ResultSet res = stat.executeQuery(quer);
 			while(res.next()){
 				//JSONObject obj1=new JSONObject();
-				obj.put("message",res.getString("messages"));	
+				obj.put("fname",res.getString(1));
+				obj.put("message",res.getString(2));
+			
 				
 				
 			}
@@ -78,6 +80,7 @@ public class FileClass {
 			res = stat.executeQuery(quer);
 			if (res.next()) {
 				reslt.put("messages", res.getString("messages"));
+				
 				
 			}
 

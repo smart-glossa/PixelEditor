@@ -52,7 +52,7 @@ $(document).ready(function(){
 });
 $(document).on("click",".fulldetail",function(){
 	var fName = $(this).children().text();
-	var url ="http://localhost:8080/pixeleditor/File?operation=getMsg&fName="+fName;
+	var url ="/pixeleditor/File?operation=getMsg&fName="+fName;
 	$.ajax({
         url: url,
         type: 'POST'
@@ -60,9 +60,9 @@ $(document).on("click",".fulldetail",function(){
     .done(function(result) {
     	sent();
         result = JSON.parse(result);
+        $("#fName").val(result.fname);
         $("#messages").val(result.message);
-        //$("#fName").val(result.fName);
-       
+               
     })
     .fail(function(result) {
         console.log(result);
