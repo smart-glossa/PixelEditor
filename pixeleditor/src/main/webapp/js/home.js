@@ -10,6 +10,7 @@ $(document).ready(function(){
 			for (var i = 0; i < result.length; i++) {
 				div += "<div class='fulldetail'>"
 			    div += "<p><img src='images/1.png'" + result[i].img + "</p>";	
+				div += "<p><img  class='delete' src='images/del.png'" + result[i].img + "</p>";
 	    		div += "<p id='na'>" + result[i].fName + "</p>";
 				div += "</div>";
 				
@@ -113,21 +114,28 @@ $(document).on("click",".fulldetail",function(){
                     });
             }
             
-            
-            
-            
-            
+                
         });
 
     
 
-    
-   /* $(document).on('click','',function(){
-      $('.details').show();
-   });
-   $(document).on('click','#save',function(){
-   	$('.div1').hide();
-   });*/
+	 $(document).on("click", ".delete", function() {
+		if (!confirm(" Delete Are you sure?")) {
+		   return;
+		}
+		var tag = $(this).parent().parent();
+		var fName = tag.children(".delete")[0].innerHTML;
+		var url ="/pixeleditor/File?operation=delete&fName="+fName;
+		$.ajax({
+		    url: url,
+		    type: 'POST'
+		}).done(function(result) {
+		   tag.remove();
+		}).fail(function(result) {
+		    console.log(result)
+		});
+		}) 
+   
 
 });
 

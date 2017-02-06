@@ -93,11 +93,13 @@ img{
 }
 .deed{
 	float:left;
-	/*margin-top:-1640px;*/
+	margin-top:-1540px;
 	margin-left:170px;
 	position:absolute;
 	
 	
 	
 }
-
+.delete{
+	float:right;
+}
