@@ -13,7 +13,7 @@ function sent(){
 	var good="";
 	good += "";
 	good+= "<div class=\"sds\"><textarea type=\"text\" id=\"messages\" class=\"textarea1\"><\/textarea><br>";
-	good += "<button id=\"update\">send<\/button><\/div>";
+	good += "<input type=\"text\" id=\"fName\" readOnly=\"true\"><button id=\"update\">send<\/button><\/div>";
 	good += "";
 	$(".deed")[0].innerHTML = good;
 }

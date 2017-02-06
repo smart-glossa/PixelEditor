@@ -61,7 +61,7 @@ $(document).on("click",".fulldetail",function(){
     	sent();
         result = JSON.parse(result);
         $("#messages").val(result.message);
-        $("#fName").val(result.fName);
+        //$("#fName").val(result.fName);
        
     })
     .fail(function(result) {
@@ -77,7 +77,7 @@ $(document).on("click",".fulldetail",function(){
 
         if (Fname == "") {
             $("#fName").focus().css("outline-color", "red");
-            return;
+            return false;
         }
         if (Messages == "") {
             $("#messages").focus().css("outline-color", "red");
@@ -109,7 +109,7 @@ $(document).on("click",".fulldetail",function(){
                     .done(function(result) {
                         result = JSON.parse(result);
                         $("#messages").val(result.messages);
-                       
+                                               
                     });
             }
             
