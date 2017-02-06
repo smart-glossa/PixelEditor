@@ -38,7 +38,7 @@ li a {
 }
 .textarea1
 {
-	width: 99%;
+	width: 130%;
 	height: 500px;
 	border-radius: 3px;
 	border: 1px solid #CCC;
@@ -88,11 +88,15 @@ img{
 	font-family: Verdana;
 	box-shadow: 1px 1px 5px #CCC;
 	margin:3px;
+	
     
 }
 .deed{
+	float:left;
+	margin-top:-1640px;
 	margin-left:170px;
-	margin-top:-1450px;
+	position:absolute;
+	
 	
 	
 }
