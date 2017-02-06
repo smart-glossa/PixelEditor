@@ -10,118 +10,112 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class FileClass {
-	Connection conn = null;
-	Statement stat = null;
-	ResultSet res = null;
-	public FileClass() throws Exception{
-		openConnection();
-	}
-	
-	public void file(String fName,String messages) throws SQLException {
-		try {
-			String qry = "insert into file(fname,messages) values('" + fName + "','"+messages+"')";
-			stat.execute(qry);
-		} finally {
-			closeConnection();
-		}
-	}
-	public JSONArray getall() throws SQLException, ClassNotFoundException {
-		JSONArray result = new JSONArray();
-		try {
-			String query = "select * from file";
-			res = stat.executeQuery(query);
-			while (res.next()) {
-				JSONObject get = new JSONObject();
-				get.put("fName", res.getString("fName"));
-				get.put("messages", res.getString("messages"));
-				
+    Connection conn = null;
+    Statement stat = null;
+    ResultSet res = null;
 
-				result.put(get);
-			}
-			return result;
-		} finally {
-			closeConnection();
-		}
-	}
-	public void update(String messages,String fName) throws SQLException {
-		try {
-			String que = "update file set messages='" + messages + "' where fname='" + fName+ "'";
-			stat.execute(que);
+    public FileClass() throws Exception {
+        openConnection();
+    }
 
-		} finally {
-			closeConnection();
-		}
-	}
-	
-	public JSONObject getmsg(String fName) throws SQLException {
-		JSONObject obj=new JSONObject();
-		try { 
-			String quer = "select fname,messages from file where fname='"+ fName +"'";
-			ResultSet res = stat.executeQuery(quer);
-			while(res.next()){
-				//JSONObject obj1=new JSONObject();
-				obj.put("fname",res.getString(1));
-				obj.put("message",res.getString(2));
-			
-				
-				
-			}
+    public void file(String fName, String messages) throws SQLException {
+        try {
+            String qry = "insert into file(fname,messages) values('" + fName + "','" + messages + "')";
+            stat.execute(qry);
+        } finally {
+            closeConnection();
+        }
+    }
 
-		} finally {
-			closeConnection();
-		}
-		return obj;
-	}
-	public void delete(String fName) throws SQLException {
-		try {
-			String query = "delete from file where fname='" + fName+ "'";
-			stat.execute(query);
-		} finally {
-			closeConnection();
+    public JSONArray getall() throws SQLException, ClassNotFoundException {
+        JSONArray result = new JSONArray();
+        try {
+            String query = "select * from file";
+            res = stat.executeQuery(query);
+            while (res.next()) {
+                JSONObject get = new JSONObject();
+                get.put("fName", res.getString("fName"));
+                get.put("messages", res.getString("messages"));
 
-		}
-	}
+                result.put(get);
+            }
+            return result;
+        } finally {
+            closeConnection();
+        }
+    }
 
-	public JSONObject getone(String fName) throws SQLException, ClassNotFoundException {
-		JSONObject reslt = new JSONObject();
-		try {
-			String quer = "select * from file where fname='" + fName +"'";
-			res = stat.executeQuery(quer);
-			if (res.next()) {
-				reslt.put("messages", res.getString("messages"));
-				
-				
-			}
+    public void update(String messages, String fName) throws SQLException {
+        try {
+            String que = "update file set messages='" + messages + "' where fname='" + fName + "'";
+            stat.execute(que);
 
-		} finally {
-			closeConnection();
-		}
-		return reslt;
+        } finally {
+            closeConnection();
+        }
+    }
 
-	}
-	private void openConnection() throws Exception{
-		 Class.forName(DataBaseConstant.MYSQL_DRIVER);
-		 String URL="jdbc:mysql://localhost:3306/editor";
-		conn=DriverManager.getConnection(URL,DataBaseConstant.USERNAME,DataBaseConstant.PASSWORD);
-		stat=conn.createStatement();
-		//con = DriverManager.getConnection(DataBaseConstant.MYSQL_SERVER + "/" + DataBaseConstant.DATABASE_NAME, DataBaseConstant.USERNAME,
-			//	DataBaseConstant.PASSWORD);
-		//sta = con.createStatement();
+    public JSONObject getmsg(String fName) throws SQLException {
+        JSONObject obj = new JSONObject();
+        try {
+            String quer = "select fname,messages from file where fname='" + fName + "'";
+            ResultSet res = stat.executeQuery(quer);
+            while (res.next()) {
+                // JSONObject obj1=new JSONObject();
+                obj.put("fname", res.getString(1));
+                obj.put("message", res.getString(2));
 
-	}
+            }
 
-	private void closeConnection() throws SQLException {
-		if (conn != null) {
-			conn.close();
+        } finally {
+            closeConnection();
+        }
+        return obj;
+    }
 
-		}
-		if (stat != null) {
-			stat.close();
-		}
-		if (res != null) {
-			res.close();
-		}
-	}
+    public void delete(String fName) throws SQLException {
+        try {
+            String query = "delete from file where fname='" + fName + "'";
+            stat.execute(query);
+        } finally {
+            closeConnection();
+        }
+    }
+
+    public JSONObject getone(String fName) throws SQLException, ClassNotFoundException {
+        JSONObject reslt = new JSONObject();
+        try {
+            String quer = "select * from file where fname='" + fName + "'";
+            res = stat.executeQuery(quer);
+            if (res.next()) {
+                reslt.put("messages", res.getString("messages"));
+
+            }
+
+        } finally {
+            closeConnection();
+        }
+        return reslt;
+    }
+
+    private void openConnection() throws Exception {
+        Class.forName(DataBaseConstant.MYSQL_DRIVER);
+        String URL = "jdbc:mysql://" + DataBaseConstant.MYSQL_SERVER + "/" + DataBaseConstant.DATABASE_NAME;
+        conn = DriverManager.getConnection(URL, DataBaseConstant.USERNAME, DataBaseConstant.PASSWORD);
+        stat = conn.createStatement();
+    }
+
+    private void closeConnection() throws SQLException {
+        if (conn != null) {
+            conn.close();
+
+        }
+        if (stat != null) {
+            stat.close();
+        }
+        if (res != null) {
+            res.close();
+        }
+    }
 
 }
-
