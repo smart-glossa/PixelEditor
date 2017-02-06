@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 
+
 public class FileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -85,7 +86,20 @@ public class FileServlet extends HttpServlet {
 		        e.printStackTrace();
 		    }
 		    response.getWriter().println(reslt);
-		}
+		} else if (operation.equals("delete")) {
+			JSONObject del = new JSONObject();
+			String fName = request.getParameter("fName");
+			try {
+				FileClass delete = new FileClass();
+				delete.delete(fName);
+				del.put("status", 1);
+			} catch (Exception e) {
+				del.put("status", 0);
+				e.printStackTrace();
+				del.put("message", e.getMessage());
+			}
+			response.getWriter().print(del);
 
 	}
+}
 }

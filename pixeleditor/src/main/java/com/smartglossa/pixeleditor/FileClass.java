@@ -72,6 +72,15 @@ public class FileClass {
 		}
 		return obj;
 	}
+	public void delete(String fName) throws SQLException {
+		try {
+			String query = "delete from file where fname='" + fName+ "'";
+			stat.execute(query);
+		} finally {
+			closeConnection();
+
+		}
+	}
 
 	public JSONObject getone(String fName) throws SQLException, ClassNotFoundException {
 		JSONObject reslt = new JSONObject();
