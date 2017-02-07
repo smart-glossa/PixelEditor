@@ -99,3 +99,11 @@ img {
     float: right;
 }
 
+select{
+	color:white;
+	background-color:#333;
+	border-radius:10px;
+}
+.right{
+	margin-top:18px;
+}
