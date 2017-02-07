@@ -2,72 +2,96 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/file.css">
-    <script src="js/external/jquery.js"></script>
-    <script src="js/home.js"></script>
-    <script src="js/box.js"></script>
-    <script type="text/javascript">
-        function ChangeFont (selectTag) {
-            var whichSelected = selectTag.selectedIndex;
-            var selectState = selectTag.options[whichSelected].text;
-            var fontTest = document.getElementById ("messages");
-            fontTest.style.fontFamily = selectState;
-            fontTest.style.fontSize = selectState;
-            fontTest.style.color = selectState;
-        }
-    </script>
+<link rel="stylesheet" type="text/css" href="css/file.css">
+<script src="js/external/jquery.js"></script>
+<script src="js/home.js"></script>
+<script src="js/box.js"></script>
+<script type="text/javascript">
+	function ChangeFont(selectTag) {
+		var whichSelected = selectTag.selectedIndex;
+		var selectState = selectTag.options[whichSelected].text;
+		var fontTest = document.getElementById("messages");
+		fontTest.style.fontFamily = selectState;
+		fontTest.style.fontSize = selectState;
+		fontTest.style.color = selectState;
+		fontTest.style.fontWeight = selectState;
+	}
+</script>
 </head>
 
 <body>
-    <ul>
-        <li>
-            <div id="sub"><img src="images/home.png" />home</div>
-        </li>
-        <li>
-            <div id="project" onClick="my()"><img src="images/file.png" />NewFile</div>
-        </li>
-        <li><div class="right">
-         <select onchange="ChangeFont (this);">
-        <option />FontStyle
-        <option >gill</option>
-        <option >helvetica</option>
-         <option >Copperplate Gothic Bold</option>
-        <option >cursive</option>
-        <option >fantasy</option>
-        <option >serif</option>
-        <option >sans-serif</option>
-        <option >monospace</option>
-        <option>Brush Script MT</option>
-    </select></div></li><br>
-    <li><div> <select onchange="ChangeFont (this);">
-        <option />size
-        <option />xx-small
-        <option />x-small
-        <option />small
-        <option />smaller
-        <option/>medium
-        <option />larger
-        <option />large
-        <option />x-large
-        <option />xx-large
-    </select></div></li>
-    <li><div> <select onchange="ChangeFont (this);">
-       <option />color
-        <option />blue
-        <option />red
-        <option />cyan
-        <option />white
-        <option />green
-        <option />yellow
-        <option />purple
-        <option selected="selected" />black
-    </select></div></li>
+	<ul>
+		<li>
+			<div id="sub">
+				<img src="images/home.png" />home
+			</div>
+		</li>
+		<li>
+			<div id="project" onClick="my()">
+				<img src="images/file.png" />NewFile
+			</div>
+		</li>
+		<li><div class="right">
+				<select onchange="ChangeFont (this);">
+					<option />FontStyle
+					<option>gill</option>
+					<option>helvetica</option>
+					<option>Copperplate Gothic Bold</option>
+					<option>cursive</option>
+					<option>fantasy</option>
+					<option>serif</option>
+					<option>sans-serif</option>
+					<option>monospace</option>
+					<option>Brush Script MT</option>
+				</select>
+			</div></li>
+		<br>
+		<li><div>
+				<select onchange="ChangeFont (this);">
+					<option />size
+					<option />xx-small
+					<option />x-small
+					<option />small
+					<option />smaller
+					<option />medium
+					<option />larger
+					<option />large
+					<option />x-large
+					<option />xx-large
+				</select>
+			</div></li>
+		<li><div>
+				<select onchange="ChangeFont (this);">
+					<option />color
+					<option />blue
+					<option />red
+					<option />cyan
+					<option />white
+					<option />green
+					<option />yellow
+					<option />purple
+					<option selected="selected" />black
+				</select>
+			</div></li>
+		<li>
+			<div id="">
+				<select onchange="ChangeFont (this);">
+					<option />bold
+					<option />bolder
+					<option />lighter
+					<option />normal
+					<option />300
+					<option selected="selected" />600
+					<option />900
+				</select>
+			</div>
+		</li>
 
-    </ul>
-    <div class="details"></div>
-    <div class="div1"></div>
-    <div class="deed"></div>
-   
+	</ul>
+	<div class="details"></div>
+	<div class="div1"></div>
+	<div class="deed"></div>
+
 </body>
 
 </html>
