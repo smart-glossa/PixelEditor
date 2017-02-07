@@ -136,5 +136,12 @@ $(document).on("click", ".fulldetail", function() {
         });
     })
 
+    
+     $(document).on('click','#sub',function(){
+       $('.details').show();
+    });
+    $(document).on('click','#project',function(){
+    	$('.deed').hide();
+    })
 
 });
