@@ -35,7 +35,7 @@ li a {
 }
 
 .textarea1 {
-    width: 130%;
+    width: 132%;
     height: 500px;
     border-radius: 3px;
     border: 1px solid #CCC;
@@ -92,6 +92,7 @@ img {
     float: left;
     margin-left: 170px;
     position: absolute;
+    bottom:20px;
 }
 
 .delete {
