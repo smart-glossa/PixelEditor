@@ -107,3 +107,8 @@ select{
 .right{
 	margin-top:18px;
 }
+h1{
+	text-align:center;
+	color:#e91e63;
+	margin-top:288px;
+}
