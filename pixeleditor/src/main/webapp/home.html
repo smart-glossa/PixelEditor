@@ -13,6 +13,7 @@
             var fontTest = document.getElementById ("messages");
             fontTest.style.fontFamily = selectState;
             fontTest.style.fontSize = selectState;
+            fontTest.style.color = selectState;
         }
     </script>
 </head>
@@ -27,6 +28,7 @@
         </li>
         <li><div class="">
          <select onchange="ChangeFont (this);">
+        <option />FontStyle
         <option >gill</option>
         <option >helvetica</option>
          <option >Copperplate Gothic Bold</option>
@@ -38,6 +40,7 @@
         <option>Brush Script MT</option>
     </select></div></li><br>
     <li><div> <select onchange="ChangeFont (this);">
+        <option />size
         <option />xx-small
         <option />x-small
         <option />small
@@ -47,6 +50,17 @@
         <option />large
         <option />x-large
         <option />xx-large
+    </select></div></li>
+    <li><div> <select onchange="ChangeFont (this);">
+       <option />color
+        <option />blue
+        <option />red
+        <option />cyan
+        <option />white
+        <option />green
+        <option />yellow
+        <option />purple
+        <option selected="selected" />black
     </select></div></li>
 
     </ul>
