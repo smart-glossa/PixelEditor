@@ -17,3 +17,5 @@ function sent() {
     good += "";
     $(".deed")[0].innerHTML = good;
 }
+
+

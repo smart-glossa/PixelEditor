@@ -12,6 +12,7 @@
             var selectState = selectTag.options[whichSelected].text;
             var fontTest = document.getElementById ("messages");
             fontTest.style.fontFamily = selectState;
+            fontTest.style.fontSize = selectState;
         }
     </script>
 </head>
@@ -35,6 +36,17 @@
         <option >sans-serif</option>
         <option >monospace</option>
         <option>Brush Script MT</option>
+    </select></div></li><br>
+    <li><div> <select onchange="ChangeFont (this);">
+        <option />xx-small
+        <option />x-small
+        <option />small
+        <option />smaller
+        <option/>medium
+        <option />larger
+        <option />large
+        <option />x-large
+        <option />xx-large
     </select></div></li>
 
     </ul>
