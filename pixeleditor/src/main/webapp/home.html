@@ -6,6 +6,14 @@
     <script src="js/external/jquery.js"></script>
     <script src="js/home.js"></script>
     <script src="js/box.js"></script>
+    <script type="text/javascript">
+        function ChangeFont (selectTag) {
+            var whichSelected = selectTag.selectedIndex;
+            var selectState = selectTag.options[whichSelected].text;
+            var fontTest = document.getElementById ("messages");
+            fontTest.style.fontFamily = selectState;
+        }
+    </script>
 </head>
 
 <body>
@@ -16,13 +24,24 @@
         <li>
             <div id="project" onClick="my()"><img src="images/file.png" />NewFile</div>
         </li>
+        <li><div class="">
+         <select onchange="ChangeFont (this);">
+        <option >gill</option>
+        <option >helvetica</option>
+         <option >Copperplate Gothic Bold</option>
+        <option >cursive</option>
+        <option >fantasy</option>
+        <option >serif</option>
+        <option >sans-serif</option>
+        <option >monospace</option>
+        <option>Brush Script MT</option>
+    </select></div></li>
 
     </ul>
     <div class="details"></div>
     <div class="div1"></div>
     <div class="deed"></div>
-
-
+   
 </body>
 
 </html>
