@@ -18,4 +18,14 @@ function sent() {
     $(".deed")[0].innerHTML = good;
 }
 
+function ChangeBgColor (selectTag) {
+    
+    var whichSelected = selectTag.selectedIndex;
+    var selectState = selectTag.options[whichSelected].text;
+
+    var div = document.getElementById ("messages");
+   // div.setAttribute("class","read");
+    div.style.backgroundColor = selectState;
+    $(".read")[0].innerHTML =selectState ;
+}
 
