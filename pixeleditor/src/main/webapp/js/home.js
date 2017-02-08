@@ -35,7 +35,7 @@ $(document).ready(function() {
             return;
         }
 
-        var url = "/pixeleditor/File?operation=addFile&fName=" + fname + "&messages=" + messages;
+        var url = "/pixeleditor/File?operation=addFile&fName=" + fname + "&messages=" + encodeURI(messages);
 
         $.ajax({
                 url: url,
@@ -62,7 +62,7 @@ $(document).on("click", ".fulldetail", function() {
             sent();
             result = JSON.parse(result);
             $("#fName").val(result.fname);
-            $("#messages").val(result.message);
+            $("#messages").val(decodeURI(result.message));
 
         })
         .fail(function(result) {
@@ -85,7 +85,7 @@ $(document).on("click", ".fulldetail", function() {
             return;
         }
 
-        var url = "/pixeleditor/File?operation=updateMsg&fName=" + Fname + "&messages=" + Messages;
+        var url = "/pixeleditor/File?operation=updateMsg&fName=" + Fname + "&messages=" + encodeURI(Messages);
         $.ajax({
                 url: url,
                 type: 'POST'
@@ -109,7 +109,7 @@ $(document).on("click", ".fulldetail", function() {
                 })
                 .done(function(result) {
                     result = JSON.parse(result);
-                    $("#messages").val(result.messages);
+                    $("#messages").val(decodeURI(result.messages));
 
                 });
         }
